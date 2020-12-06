@@ -1,7 +1,5 @@
 from os import path
 
-
-    
 while True:
     if(str(path.exists("d:\password.txt")) == "True"):
         pass_input = input("Enter your password : ")
