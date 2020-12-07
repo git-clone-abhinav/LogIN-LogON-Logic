@@ -7,14 +7,20 @@ salt = "RKh?^rLYSBf#nD-2tGzjx^zXy+q#Ph=^kb^r6&A_9NAhdh7r7k%H!d%-k%5D@C5-ysn=dd-r
 
 def passset(id):
     f = open("d:\password.txt","w+")
+
+
     if id == 1:
         print("Reset Password initiated ..") 
     else:
         print("No password detected ,set a password for future reference.")
+
+    
     password = input("Enter a new Password : ")
+
     salted_password = password + salt
     a = hashlib.sha1(b'Hello World')
     hex_dig = a.hexdigest()
+
     with open('d:\password.txt', 'w') as f:
         f.write("%s" % hex_dig)
 
@@ -23,10 +29,17 @@ while True:
         pass_input = input("Enter your password : ")
 
         #unhashing is performed here
+        
 
         with open('d:\password.txt') as f :
             first_line = f.readline()
-        if pass_input == first_line != "":
+            a = hashlib.sha1(first_line.strip().encode('utf-8')).hexdigest()
+
+        print(a)
+
+
+        
+        if pass_input == a != "":
             print("Access Granted.")
             break
         elif pass_input == "resetpassword" :
