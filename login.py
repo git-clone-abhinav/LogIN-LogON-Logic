@@ -31,15 +31,11 @@ def passset(id):
 while True:
     if(str(path.exists("d:\password.txt")) == "True"):
         pass_input = input("Enter your password : ")
-
-        #unhashing is performed here
         a = hashing(pass_input)
 
         with open('d:\password.txt') as f :
             first_line = f.readline()
-        b = hashing(first_line)
-
-
+        b = first_line
 
         if a == b != "":
             print("Access Granted.")
