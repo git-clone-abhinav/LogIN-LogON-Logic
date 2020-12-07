@@ -17,12 +17,8 @@ def passset(id):
     
     password = input("Enter a new Password : ")
 
-    salted_password = password + salt
-    a = hashlib.sha1(b'Hello World')
-    hex_dig = a.hexdigest()
-
     with open('d:\password.txt', 'w') as f:
-        f.write("%s" % hex_dig)
+        f.write("%s" % password)
 
 while True:
     if(str(path.exists("d:\password.txt")) == "True"):
@@ -33,13 +29,10 @@ while True:
 
         with open('d:\password.txt') as f :
             first_line = f.readline()
-            a = hashlib.sha1(first_line.strip().encode('utf-8')).hexdigest()
-
-        print(a)
 
 
-        
-        if pass_input == a != "":
+
+        if pass_input == first_line != "":
             print("Access Granted.")
             break
         elif pass_input == "resetpassword" :

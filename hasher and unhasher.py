@@ -11,7 +11,8 @@ salt = "RKh?^rLYSBf#nD-2tGzjx^zXy+q#Ph=^kb^r6&A_9NAhdh7r7k%H!d%-k%5D@C5-ysn=dd-r
 
 salted_password = password + salt
 
-a = hashlib.sha1(b'Hello World')
+temp = bytes(password, 'utf-8') 
+a = hashlib.sha1(temp)
 hex_dig = a.hexdigest()
 
 
