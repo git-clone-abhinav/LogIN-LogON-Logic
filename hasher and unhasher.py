@@ -17,4 +17,3 @@ hex_dig = a.hexdigest()
 
 
 print(hex_dig)
-
